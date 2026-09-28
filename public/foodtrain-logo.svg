@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Flame Icon & Train Badge -->
+  <g transform="translate(6, 6)">
+    <rect width="48" height="48" rx="24" fill="#0D7A42"/>
+    <path d="M24 10C20 17 15 21 15 27C15 32 19 36 24 36C29 36 33 32 33 27C33 21 28 17 24 10Z" fill="#F59E0B"/>
+    <path d="M24 18C22 22 19 25 19 29C19 31.5 21.2 33.5 24 33.5C26.8 33.5 29 31.5 29 29C29 25 26 22 24 18Z" fill="#FFFFFF"/>
+    <path d="M14 39H34" stroke="#FFF" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M18 39L17 43" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+    <path d="M24 39L24 43" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+    <path d="M30 39L31 43" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="64" y="34" font-family="'Montserrat', sans-serif" font-weight="900" font-size="24" fill="#1A1A1A" letter-spacing="-0.5">FOOD<tspan fill="#0D7A42">TRAIN</tspan></text>
+  <text x="65" y="47" font-family="'Inter', sans-serif" font-weight="700" font-size="9" fill="#71717A" letter-spacing="2.5">FLAME-GRILLED &amp; KITCHEN</text>
+</svg>

@@ -1,0 +1,93 @@
+export const branches = [
+  {
+    id: "ikeja-allen",
+    name: "Ikeja (Allen Avenue)",
+    state: "Lagos",
+    address: "28 Balogun St, off Allen Avenue, Ikeja, Lagos",
+    phone: "0816 494 0911",
+    hours: "10:30 AM - 11:00 PM",
+    deliveryTime: "20 - 35 mins",
+    deliveryFee: 1200,
+    isOpen: true,
+    rating: 4.9,
+    reviews: 1420
+  },
+  {
+    id: "lekki-phase1",
+    name: "Lekki Phase 1",
+    state: "Lagos",
+    address: "14 Admiralty Way, Lekki Phase 1, Lagos",
+    phone: "0803 219 4481",
+    hours: "11:00 AM - 12:00 AM",
+    deliveryTime: "25 - 40 mins",
+    deliveryFee: 1500,
+    isOpen: true,
+    rating: 4.8,
+    reviews: 980
+  },
+  {
+    id: "yaba-sabo",
+    name: "Yaba (Tech Hub)",
+    state: "Lagos",
+    address: "Plot 140, Oyadiran Estate, Sabo Yaba, Lagos",
+    phone: "0708 664 9200",
+    hours: "11:00 AM - 11:00 PM",
+    deliveryTime: "20 - 30 mins",
+    deliveryFee: 1000,
+    isOpen: true,
+    rating: 4.8,
+    reviews: 860
+  },
+  {
+    id: "lagos-island",
+    name: "Lagos Island",
+    state: "Lagos",
+    address: "16 Omididun St, Lagos Island, Lagos",
+    phone: "0912 962 3728",
+    hours: "10:00 AM - 10:30 PM",
+    deliveryTime: "25 - 35 mins",
+    deliveryFee: 1200,
+    isOpen: true,
+    rating: 4.7,
+    reviews: 640
+  },
+  {
+    id: "abuja-garki",
+    name: "Abuja (Garki 2)",
+    state: "Abuja",
+    address: "A14, Amma Centre, Oro Ago Crescent, Garki 2, Abuja",
+    phone: "0703 967 3102",
+    hours: "11:00 AM - 11:30 PM",
+    deliveryTime: "25 - 40 mins",
+    deliveryFee: 1400,
+    isOpen: true,
+    rating: 4.9,
+    reviews: 1120
+  },
+  {
+    id: "ibadan-oluyole",
+    name: "Ibadan (Oluyole)",
+    state: "Oyo",
+    address: "Olubadan Avenue, Oluyole Estate, Ibadan, Oyo",
+    phone: "0707 233 4340",
+    hours: "11:00 AM - 10:30 PM",
+    deliveryTime: "20 - 35 mins",
+    deliveryFee: 1000,
+    isOpen: true,
+    rating: 4.8,
+    reviews: 530
+  },
+  {
+    id: "port-harcourt",
+    name: "Port Harcourt (Rumuigbo)",
+    state: "Rivers",
+    address: "18 Psychiatric Hospital Rd, Rumuigbo, Port Harcourt",
+    phone: "0802 822 9973",
+    hours: "11:00 AM - 11:00 PM",
+    deliveryTime: "25 - 45 mins",
+    deliveryFee: 1300,
+    isOpen: true,
+    rating: 4.8,
+    reviews: 790
+  }
+];
