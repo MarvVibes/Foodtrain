@@ -12,6 +12,7 @@ import MenuGrid from "./components/MenuGrid";
 import ItemCustomizerModal from "./components/ItemCustomizerModal";
 import CartDrawer from "./components/CartDrawer";
 import CheckoutModal from "./components/CheckoutModal";
+import ScheduleOrderModal from "./components/ScheduleOrderModal";
 import OrderTracker from "./components/OrderTracker";
 import CateringEstimator from "./components/CateringEstimator";
 import GiftCardStudio from "./components/GiftCardStudio";
@@ -62,6 +63,8 @@ export default function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [customizingItem, setCustomizingItem] = useState(null);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+  const [isScheduleModalOpen, setIsScheduleModalOpen] = useState(false);
+  const [scheduledOrder, setScheduledOrder] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [promoDiscount, setPromoDiscount] = useState(10); // Code TRAIN10 default
@@ -69,12 +72,28 @@ export default function App() {
   const [trackedOrderId, setTrackedOrderId] = useState("FT-7291");
   const [toastMessage, setToastMessage] = useState("");
 
+  // Automatically pop up Schedule Order modal when visiting (matching reference site)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsScheduleModalOpen(true);
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   // Quick Toast Helper
   const showToast = (msg) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(""), 3500);
+  };
+
+  // Schedule confirmation handler
+  const handleConfirmSchedule = (scheduleData) => {
+    setScheduledOrder(scheduleData);
+    showToast(
+      `Order scheduled! ${scheduleData.type === "delivery" ? "Delivery" : "Pickup"} for ${scheduleData.dayLabel}, ${scheduleData.time} 🔥`
+    );
   };
 
   // Add customized item to cart
@@ -149,13 +168,19 @@ export default function App() {
     <div className="foodtrain-app-wrapper">
       {/* 1. Cultural Naija Preloader */}
       {showPreloader && (
-        <Preloader onComplete={() => setShowPreloader(false)} />
+        <Preloader
+          onComplete={() => {
+            setShowPreloader(false);
+            setTimeout(() => setIsScheduleModalOpen(true), 400);
+          }}
+        />
       )}
 
       {/* 2. Top Promotional Announcement Banner */}
       <AnnouncementBar 
         branchName={selectedBranch.name} 
         onSelectBranch={() => setIsBranchModalOpen(true)}
+        onOpenSchedule={() => setIsScheduleModalOpen(true)}
       />
 
       {/* 3. Sticky Master Navigation Bar */}
@@ -168,6 +193,8 @@ export default function App() {
         onOpenCart={() => setIsCartOpen(true)}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        onOpenScheduleModal={() => setIsScheduleModalOpen(true)}
+        scheduledOrder={scheduledOrder}
       />
 
       {/* Main Content Area switched by activeTab */}
@@ -466,6 +493,15 @@ export default function App() {
         promoCode={promoCode}
         onOrderCompleted={handleOrderCompleted}
         onOpenTracker={handleOpenTracker}
+      />
+
+      {/* Schedule Order Modal (Replicating reference popup) */}
+      <ScheduleOrderModal 
+        isOpen={isScheduleModalOpen}
+        onClose={() => setIsScheduleModalOpen(false)}
+        onConfirm={handleConfirmSchedule}
+        branches={branches}
+        selectedBranch={selectedBranch}
       />
 
       {/* Floating Interactive Toast Feedback */}

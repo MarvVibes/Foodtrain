@@ -1,27 +1,32 @@
 import React from "react";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Clock } from "lucide-react";
 
-export default function AnnouncementBar({ onOpenPromo }) {
+export default function AnnouncementBar({ onOpenPromo, onOpenSchedule }) {
   return (
     <div className="announcement-bar">
       <div className="announcement-inner">
-        <span className="news-tag">NEWS</span>
+        <span className="news-tag">HOURS</span>
         <span>
-          Flame-grilled favourites delivered in 25 mins across Lagos, Abuja, Ibadan &amp; PH!
+          We are currently closed for walk-ins — schedule your order for fast delivery or pickup!
         </span>
         <button
-          onClick={onOpenPromo}
+          onClick={onOpenSchedule}
           style={{
-            color: "#FFB800",
-            textDecoration: "underline",
+            background: "rgba(255, 255, 255, 0.2)",
+            color: "#ffffff",
             fontWeight: 700,
             display: "inline-flex",
             alignItems: "center",
-            gap: "4px",
-            fontSize: "12px"
+            gap: "5px",
+            fontSize: "12px",
+            padding: "3px 12px",
+            borderRadius: "9999px",
+            border: "1px solid rgba(255, 255, 255, 0.35)",
+            cursor: "pointer",
+            transition: "all 0.2s"
           }}
         >
-          <Sparkles size={13} /> Use code TRAIN10 for 10% Off
+          <Clock size={13} /> Schedule Order
         </button>
       </div>
     </div>

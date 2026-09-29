@@ -9,7 +9,8 @@ import {
   ShoppingCart,
   MapPin,
   ChevronDown,
-  X
+  X,
+  Clock
 } from "lucide-react";
 
 export default function Navbar({
@@ -21,7 +22,9 @@ export default function Navbar({
   onOpenCart,
   searchQuery,
   setSearchQuery,
-  onOpenSearch
+  onOpenSearch,
+  onOpenScheduleModal,
+  scheduledOrder
 }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -113,6 +116,20 @@ export default function Navbar({
                 {selectedBranch ? selectedBranch.name : "Select Branch"}
               </span>
               <ChevronDown size={14} color="#6b7280" />
+            </button>
+
+            {/* Schedule Order Pill */}
+            <button
+              className="schedule-badge-pill"
+              onClick={onOpenScheduleModal}
+              title="Schedule order for delivery or pickup"
+            >
+              <Clock size={13} color="#0D7A42" />
+              <span>
+                {scheduledOrder
+                  ? `${scheduledOrder.dayLabel}, ${scheduledOrder.time.split(" - ")[0]}`
+                  : "Schedule"}
+              </span>
             </button>
 
             {/* Search Trigger */}
